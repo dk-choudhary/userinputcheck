@@ -1,0 +1,33 @@
+package Com.QuestionPractic;
+import java.util.*;
+public class UserinputCheck {
+
+	public static void main(String[] args) {
+		
+
+		
+			String username[]=new String[4];
+			System.out.println("Enter your user name : ");
+		for (int i=0;i<4;i++) {
+			Scanner sc =new Scanner(System.in);
+			
+		 username[i]=sc.nextLine();
+		}
+			
+		for(String name :username) {
+			
+				        if (name.matches(".*\\d.*") && name.matches(".*[@,&,*,#,=].*") && name.matches(".*[a-z].*") && name.matches(".*[A-Z].*") && name.length()<=10 && name.length()>=4) {
+				            System.out.println("pass");
+				        } else {
+				            System.out.println("fail");
+				        }
+				  
+		}
+		
+	}
+	
+}
+
+			
+
+
