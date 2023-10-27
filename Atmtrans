@@ -1,0 +1,70 @@
+package com.practic;
+
+import java.util.Scanner;
+class MainException extends Exception{
+	public MainException(String str)
+	{
+		super(str);
+	}
+}
+
+class NegativeAmountException  extends MainException  
+{  
+    public NegativeAmountException (String str)  
+    {  
+         
+        super(str);  
+       
+        
+        
+    } 
+} 
+class UnsufficientAmountException  extends MainException  
+{  
+    public UnsufficientAmountException (String str)  
+    {  
+         
+        super(str);  
+       
+        
+        
+    } 
+} 
+public class AtmException {
+	static int balance=2000;
+	
+	
+	   // method to check the age  
+    static void validate (int amount) throws NegativeAmountException,UnsufficientAmountException{  
+    	
+    
+       if(amount < 0){  
+  
+        // throw an object of user defined exception  
+        throw new NegativeAmountException("Your entered amount is negative please enter valid amount");    
+    }  
+       else
+    	   if(amount >balance){   
+    		   throw new UnsufficientAmountException("Your entered amount is grater then your account balance ");
+          
+        } else {
+        	System.out.println("your trangistation is sucessful    your Remaning balance is :"+(balance-amount));
+        }
+     }    
+
+	public static void main(String[] args) {
+		
+		
+		Scanner sc =new Scanner(System.in);
+    	System.out.println("enter amount to withdrowl :");
+    	int amountToWithdrowl=sc.nextInt();
+    	 try {
+			validate(amountToWithdrowl);
+		} catch (NegativeAmountException | UnsufficientAmountException e) {
+		
+			System.out.println(e.getMessage());
+		}
+
+	}
+
+}
